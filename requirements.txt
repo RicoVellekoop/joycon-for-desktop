@@ -1,0 +1,6 @@
+joycon-python
+hidapi
+pyglm
+mouse
+keyboard
+pyyaml

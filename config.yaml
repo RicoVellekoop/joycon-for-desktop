@@ -1,0 +1,38 @@
+analog-sticks:
+  left:
+    wheel:
+      scroll_direction: vertical
+      scroll_speed: 0.8
+  right:
+    mouse:
+      mouse_speed: 2.0
+
+buttons:
+  left:
+    down: _
+    up: _
+    right: _
+    left: _
+    sr: _
+    sl: _
+    l: _
+    zl: _
+
+  right:
+    y: _
+    x: _
+    b: _
+    a: _
+    sr: _
+    sl: _
+    r: _
+    zr: _
+
+  shared:
+    minus: _
+    plus: _
+    r-stick: _
+    l-stick: _
+    home: _
+    capture: _
+    charging-grip: _

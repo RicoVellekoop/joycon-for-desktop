@@ -1,0 +1,15 @@
+app:
+  refresh-speed: 0.01
+  path-config: config.yaml
+
+joystick:
+  scale: 300.0
+  left:
+    deadzone: 1.0
+    horizontal-center: 1963
+    vertical-center: 2284
+
+  right:
+    deadzone: 0.8
+    horizontal-center: 2169
+    vertical-center: 1784
