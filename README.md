@@ -23,6 +23,7 @@ Make sure you have the Joycons connected to your computer before running.
 
 The keybinds are set in the `config.yaml` file.
 The file is divided into 2 sections: `analog-sticks` and `buttons`.
+For an example configuration, `config.default.yaml` and the sections below.
 Other settings can be changes in the `settings.yaml` file.
 To change apply the changes, restart the program.
 
