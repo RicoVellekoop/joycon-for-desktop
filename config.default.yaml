@@ -20,7 +20,7 @@ left:
     l: shift
     zl: ctrl
     minus: esc
-    l-stick_btn: ctrl+a
+    stick_r_btn: ctrl+a
     capture: windows
 
 right:
@@ -38,5 +38,5 @@ right:
     r: mouse-right
     zr: mouse-left
     plus: enter
-    r-stick_btn: backspace
+    stick_r_btn: backspace
     home: toggle-motion

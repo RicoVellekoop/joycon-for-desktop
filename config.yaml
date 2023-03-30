@@ -20,7 +20,7 @@ left:
     l: _
     zl: _
     minus: _
-    l-stick: _
+    stick_l_btn: _
     capture: _
 
 right:
@@ -38,5 +38,5 @@ right:
     r: _
     zr: _
     plus: _
-    r-stick_btn: _
+    stick_r_btn: _
     home: _

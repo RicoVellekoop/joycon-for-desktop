@@ -4,13 +4,9 @@ import mouse as ms
 
 from misc import SCREEN_WIDTH, SCREEN_HEIGHT
 
-from pprint import pprint
-
 
 class Motion:
     def __init__(self, config):
-
-        pprint(config)
         self.side = config["side"]
         self.sensitivity = config["sensitivity"]
         self.smoothing_factor = config["smoothing"]
