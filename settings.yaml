@@ -1,3 +1,5 @@
+version: v1.0.0
+
 app:
   refresh-speed: 0.01
   path-config: config.default.yaml

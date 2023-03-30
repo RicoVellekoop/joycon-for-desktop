@@ -22,7 +22,6 @@ Make sure you have the Joycons connected to your computer before running.
 ## How to use
 
 The keybinds are set in the `config.yaml` file.
-The file is divided into 2 sections: `analog-sticks` and `buttons`.
 For an example configuration, `config.default.yaml` and the sections below.
 Other settings can be changes in the `settings.yaml` file.
 To change apply the changes, restart the program.
@@ -32,12 +31,16 @@ To change apply the changes, restart the program.
 The analog sticks are used to move the mouse, and scroll the mouse wheel.
 
 ```YaML
-analog-sticks:
-  left:
+left:
+  analog-stick:
     wheel:
       scroll_direction: vertical
       scroll_speed: 0.8
-  right:
+
+  ... rest of the buttons ...
+
+right:
+  analog-stick:
     mouse:
       mouse_speed: 2.0
 ```
@@ -51,16 +54,19 @@ To switch the modes of the analog sticks place the `mouse` or `wheel` block unde
 The buttons are used to press keys on the keyboard.
 
 ```YaML
-buttons:
-  left:
+left:
+  buttons:
     down: down
     up: up
     right: right
     left: left
-    sr: a
-    sl: b
+    left_sr: a
+    left_sl: b
     l: _
     zl: ctrl+c
+    minus: _
+    stick_l_btn: _
+    capture: toggle-motion
 ```
 
 The block above shows a configuration for the left controller. The d-pad is set to the arrow keys, and the `sr` and `sl` buttons are set to `a` and `b` respectively.
@@ -68,6 +74,29 @@ It is also possible to set multiple keys to a button. For example, the `zl` butt
 To unbind a button, set it to `_`.
 The modifier keys can be set with the following values: `alt`, `ctrl`, `shift`, `windows`
 To use mouse buttons, use the following values: `mouse-left`, `mouse-middle`, `mouse-right`
+To toggle motion controls, use the value `toggle-motion`.
+
+### Using motion controls
+
+Motion controls can be used to move the mouse by pointing at your screen.
+
+```YaML
+motion:
+  side: right
+  sensitivity: 1.0
+  smoothing: 0.25
+  min-distance: 8
+```
+
+The block above shows the default configuration. The `side` can be set to `left` or `right`. The `sensitivity` can be changed to your preference.
+The `smoothing` is the amount of smoothing applied to the mouse movement. Smoothing can be used to reduce the jitter of the mouse, but it will also make the mouse movements less responsive.
+The `min-distance` is the minimum distance(in pixels) the Joycon has to move before the mouse starts moving. This is useful te prevent drag-clicking when you are not moving the Joycon. Setting this value to high will make the mouse feel jumpy, but setting it to low will make it harder to click things without dragging.
+
+To enable motion controls bind a button to the `toggle-motion` value. Place the Joycon on a flat surface(or hold it still for a moment) pointing to the middle of the screen. Then press the button you bound to `toggle-motion`.
+The Joycon will now take a second to calibrate, and after that it will start moving the mouse, towards the middle of the screen. Now you can move the Joycon to move the mouse.
+To disable motion controls, press the button you bound to `toggle-motion` again.
+
+> make sure you change your screen resolution to the resolution of your screen in the `settings.yaml` file.
 
 ### Changing application settings
 
@@ -77,10 +106,14 @@ The application settings can be found in the `settings.yaml` file.
 app:
   refresh-speed: 0.01
   path-config: config.yaml
+  screen:
+    width: 1920
+    height: 1080
 ```
 
 The block above shows the default settings. The `refresh-speed` is the time between each cycle of the program. Turing this value up will slow the program down. This is useful when the mouse movements are too fast.
 The `path-config` is the path to the `config.yaml` file. You can make multiple configurations, and change this path to the one you want to use.
+The `screen` block is used to set the resolution of your screen. This is used to calculate the mouse movement when using motion controls. Make sure you set this to the resolution of your screen.
 
 ### Calibrating the Joycons
 

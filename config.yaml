@@ -1,3 +1,5 @@
+version: v1.0.0
+
 motion:
   side: right
   sensitivity: 1.0
@@ -15,8 +17,8 @@ left:
     up: _
     right: _
     left: _
-    sr: _
-    sl: _
+    left_sr: _
+    left_sl: _
     l: _
     zl: _
     minus: _
