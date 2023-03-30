@@ -1,6 +1,9 @@
 app:
   refresh-speed: 0.01
   path-config: config.default.yaml
+  screen:
+    width: 1920
+    height: 1080
 
 joystick:
   scale: 300.0

@@ -2,13 +2,19 @@ from math import sqrt
 from time import sleep
 import mouse as ms
 
-SPEED = 0.25
+from misc import SCREEN_WIDTH, SCREEN_HEIGHT
+
+from pprint import pprint
 
 
 class Motion:
     def __init__(self, config):
+
+        pprint(config)
         self.side = config["side"]
         self.sensitivity = config["sensitivity"]
+        self.smoothing_factor = config["smoothing"]
+        self.min_distance = config["min-distance"]
         self.active = False
         self.calibrated = False
 
@@ -23,17 +29,17 @@ class Motion:
         if controller.pointer is None:
             return
         x, y = (
-            1920 / 2 + controller.pointer.x * 1920 * self.sensitivity,
-            1080 / 2 - controller.pointer.y * 1080 * self.sensitivity,
+            SCREEN_WIDTH / 2 + controller.pointer.x * SCREEN_WIDTH * self.sensitivity,
+            SCREEN_HEIGHT / 2 - controller.pointer.y * SCREEN_HEIGHT * self.sensitivity,
         )
         current_x, current_y = ms.get_position()
         x_dist, y_dist = current_x - x, current_y - y
-        if sqrt(x_dist**2 + y_dist**2) < 8:
+        if sqrt(x_dist**2 + y_dist**2) < self.min_distance:
             return
 
         ms.move(
-            current_x - (x_dist * SPEED),
-            current_y - (y_dist * SPEED),
+            current_x - (x_dist * self.smoothing_factor),
+            current_y - (y_dist * self.smoothing_factor),
         )
 
     def toggle(self):

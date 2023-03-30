@@ -2,10 +2,7 @@ from time import sleep
 
 from joycon import Joycons
 
-from misc import load_config, app_config
-
-REFRESH_SPEED = app_config["refresh-speed"]
-PATH_CONFIG = app_config["path-config"]
+from misc import REFRESH_SPEED, PATH_CONFIG, load_config
 
 config = load_config(PATH_CONFIG)
 

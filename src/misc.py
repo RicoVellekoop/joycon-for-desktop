@@ -10,6 +10,12 @@ def load_settings(path="settings.yaml"):
 
 app_config, stick_config = load_settings()
 
+REFRESH_SPEED = app_config["refresh-speed"]
+PATH_CONFIG = app_config["path-config"]
+
+SCREEN_WIDTH = app_config["screen"]["width"]
+SCREEN_HEIGHT = app_config["screen"]["height"]
+
 L_DEADZONE = stick_config["left"]["deadzone"]
 L_HORIZONTAL_CENTER = stick_config["left"]["horizontal-center"]
 L_VERTICAL_CENTER = stick_config["left"]["vertical-center"]

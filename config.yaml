@@ -1,6 +1,8 @@
 motion:
   side: right
   sensitivity: 1.0
+  smoothing: 0.25
+  min-distance: 8
 
 left:
   analog-stick:
