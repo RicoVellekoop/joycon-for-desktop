@@ -1,38 +1,40 @@
-analog-sticks:
-  left:
+motion:
+  side: right
+  sensitivity: 1.0
+
+left:
+  analog-stick:
     wheel:
       scroll_direction: vertical
       scroll_speed: 0.8
-  right:
-    mouse:
-      mouse_speed: 2.0
 
-buttons:
-  left:
+  buttons:
     down: down
     up: up
     right: right
     left: left
-    sr: ctrl+c
-    sl: ctrl+v
+    left_sr: ctrl+c
+    left_sl: ctrl+v
     l: shift
     zl: ctrl
+    minus: esc
+    l-stick_btn: ctrl+a
+    capture: windows
 
-  right:
+right:
+  analog-stick:
+    mouse:
+      mouse_speed: 2.0
+
+  buttons:
     y: w
     x: a
     b: s
     a: d
-    sr: ctrl+z
-    sl: ctrl+y
+    right_sr: ctrl+z
+    right_sl: ctrl+y
     r: mouse-right
     zr: mouse-left
-
-  shared:
-    minus: backspace
     plus: enter
-    r-stick: ctrl+r
-    l-stick: ctrl+a
-    home: windows
-    capture: esc
-    charging-grip: _
+    r-stick_btn: backspace
+    home: toggle-motion

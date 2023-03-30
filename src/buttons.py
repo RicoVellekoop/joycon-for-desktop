@@ -2,6 +2,26 @@ import keyboard as kb
 import mouse as ms
 
 
+class Buttons:
+    def __init__(self, config):
+        self.config = {
+            button: Key(bind)
+            for (button, bind) in config.items()
+            if bind not in ("_", None)
+        }
+
+    def process(self, controller, motion):
+        for button, status in controller.events():
+            if button not in self.config:
+                continue
+            if status == 0 and self.config[button].bind != "toggle-motion":
+                self.config[button].release()
+            elif status == 1 and self.config[button].bind != "toggle-motion":
+                self.config[button].press()
+            elif status == 1 and self.config[button].bind == "toggle-motion":
+                motion.toggle()
+
+
 def is_mouse_button(bind):
     return bind.startswith("mouse")
 
@@ -48,35 +68,3 @@ class Key:
             ms.release("middle")
         else:
             raise ValueError("Invalid mouse button")
-
-
-SHARED_KEYS = {
-    "left": ["minus", "capture", "l-stick"],
-    "right": ["plus", "home", "r-stick"],
-}
-
-
-class ButtonHandler:
-    def __init__(self, config):
-        self.buttons = {
-            part: {
-                button: {"bind": Key(bind), "is_pressed": False}
-                for (button, bind) in buttons.items()
-                if bind not in ("_", None)
-            }
-            for (part, buttons) in config.items()
-        }
-
-    def process(self, controller, side):
-        for part, buttons in self.buttons.items():
-            if part == "shared" or part == side:
-                for button, bind in buttons.items():
-                    if part == side or (
-                        part == "shared" and button in SHARED_KEYS[side]
-                    ):
-                        if controller[part][button] and not bind["is_pressed"]:
-                            bind["bind"].press()
-                            bind["is_pressed"] = True
-                        elif not controller[part][button] and bind["is_pressed"]:
-                            bind["bind"].release()
-                            bind["is_pressed"] = False

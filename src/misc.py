@@ -41,8 +41,8 @@ def normalise_stick(stick, side):
     else:
         raise ValueError("Invalid side")
 
-    x = stick["horizontal"]
-    y = stick["vertical"]
+    x = stick[0]
+    y = stick[1]
     return (
         deadzone((x - horizontal_center) / SCALE, deadzone_value),
         -deadzone((y - vertical_center) / SCALE, deadzone_value),
@@ -52,4 +52,4 @@ def normalise_stick(stick, side):
 def load_config(path):
     with open(path) as f:
         config = yaml.load(f, Loader=SafeLoader)
-        return config["buttons"], config["analog-sticks"]
+        return config

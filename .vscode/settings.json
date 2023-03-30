@@ -6,6 +6,7 @@
         "Joycons",
         "keybinds",
         "normalise",
+        "pyjc",
         "pyjoycon"
     ],
     "python.linting.flake8Enabled": true,
