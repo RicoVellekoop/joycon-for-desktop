@@ -66,7 +66,8 @@ The block above shows a configuration for the left controller. The d-pad is set 
 It is also possible to set multiple keys to a button. For example, the `zl` button is set to `ctrl+c`, which means that when the `zl` button is pressed, the `ctrl` and `c` keys are pressed at the same time.
 To unbind a button, set it to `_`.
 The modifier keys can be set with the following values:
-`'alt', 'alt gr', 'ctrl', 'left alt', 'left ctrl', 'left shift', 'left windows', 'right alt', 'right ctrl', 'right shift', 'right windows', 'shift', 'windows'`
+`alt`, `alt gr`, `ctrl`, `left alt`, `left ctrl`, `left shift`, `left windows`, `right alt`, `right ctrl`, `right shift`, `right windows`, `shift`, `windows`
+To use mouse buttons, use the following values: `mouse_left`, `mouse_middle`, `mouse_right`
 
 ### Changing application settings
 
