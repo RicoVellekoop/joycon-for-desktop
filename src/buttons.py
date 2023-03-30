@@ -21,11 +21,11 @@ class Key:
                 raise ValueError(f"Invalid key: {self.bind}")
 
     def mouse_press(self):
-        if self.bind == "mouse_left":
+        if self.bind == "mouse-left":
             ms.press("left")
-        elif self.bind == "mouse_right":
+        elif self.bind == "mouse-right":
             ms.press("right")
-        elif self.bind == "mouse_middle":
+        elif self.bind == "mouse-middle":
             ms.press("middle")
         else:
             raise ValueError("Invalid mouse button")
@@ -40,11 +40,11 @@ class Key:
                 raise ValueError(f"Invalid key: {self.bind}")
 
     def mouse_release(self):
-        if self.bind == "mouse_left":
+        if self.bind == "mouse-left":
             ms.release("left")
-        elif self.bind == "mouse_right":
+        elif self.bind == "mouse-right":
             ms.release("right")
-        elif self.bind == "mouse_middle":
+        elif self.bind == "mouse-middle":
             ms.release("middle")
         else:
             raise ValueError("Invalid mouse button")
