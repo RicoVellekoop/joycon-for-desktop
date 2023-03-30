@@ -71,11 +71,12 @@ class ButtonHandler:
         for part, buttons in self.buttons.items():
             if part == "shared" or part == side:
                 for button, bind in buttons.items():
-                    if part == "shared" and button not in SHARED_KEYS[side]:
-                        break
-                    if controller[part][button] and not bind["is_pressed"]:
-                        bind["bind"].press()
-                        bind["is_pressed"] = True
-                    elif not controller[part][button] and bind["is_pressed"]:
-                        bind["bind"].release()
-                        bind["is_pressed"] = False
+                    if part == side or (
+                        part == "shared" and button in SHARED_KEYS[side]
+                    ):
+                        if controller[part][button] and not bind["is_pressed"]:
+                            bind["bind"].press()
+                            bind["is_pressed"] = True
+                        elif not controller[part][button] and bind["is_pressed"]:
+                            bind["bind"].release()
+                            bind["is_pressed"] = False
